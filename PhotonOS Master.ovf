@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Envelope xmlns="http://schemas.dmtf.org/ovf/envelope/1" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:vmw="http://www.vmware.com/schema/ovf" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData">
+  <References>
+    <File ovf:id="file1" ovf:href="PhotonOS Master-1.vmdk"/>
+    <File ovf:id="file2" ovf:href="PhotonOS Master-2.nvram" ovf:size="8684"/>
+  </References>
+  <DiskSection>
+    <Info>List of the virtual disks</Info>
+    <Disk ovf:capacityAllocationUnits="byte" ovf:format="http://www.vmware.com/interfaces/specifications/vmdk.html#streamOptimized" ovf:diskId="vmdisk1" ovf:capacity="21474836480" ovf:fileRef="file1"/>
+  </DiskSection>
+  <NetworkSection>
+    <Info>The list of logical networks</Info>
+    <Network ovf:name="vxw-dvs-26-virtualwire-11-sid-5000-PhotonOS">
+      <Description>The vxw-dvs-26-virtualwire-11-sid-5000-PhotonOS network</Description>
+    </Network>
+  </NetworkSection>
+  <VirtualSystem ovf:id="PhotonOS Master">
+    <Info>A Virtual system</Info>
+    <Name>PhotonOS Master</Name>
+    <AnnotationSection>
+      <Info>A human-readable annotation</Info>
+      <Annotation>name:Photon
+userid:eb3314bba6a44a93a83cb33f9874b8a5
+username:admin
+projectid:a8e76452f0564f1f9a285301f6164761
+projectname:Photon
+flavor:name:m1.small
+flavor:memory_mb:2048
+flavor:vcpus:1
+flavor:ephemeral_gb:0
+flavor:root_gb:20
+flavor:swap:0
+imageid:a6d484de-c2e2-4d3d-add1-6e2950d0dc38
+package:17.0.2</Annotation>
+    </AnnotationSection>
+    <OperatingSystemSection ovf:id="36" vmw:osType="vmwarePhoton64Guest">
+      <Info>The operating system installed</Info>
+      <Description>VMware Photon OS (64-bit)</Description>
+    </OperatingSystemSection>
+    <VirtualHardwareSection>
+      <Info>Virtual hardware requirements</Info>
+      <System>
+        <vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+        <vssd:InstanceID>0</vssd:InstanceID>
+        <vssd:VirtualSystemType>vmx-13</vssd:VirtualSystemType>
+      </System>
+      <Item>
+        <rasd:AllocationUnits>hertz * 10^6</rasd:AllocationUnits>
+        <rasd:Description>Number of Virtual CPUs</rasd:Description>
+        <rasd:ElementName>1 virtual CPU(s)</rasd:ElementName>
+        <rasd:InstanceID>1</rasd:InstanceID>
+        <rasd:ResourceType>3</rasd:ResourceType>
+        <rasd:VirtualQuantity>1</rasd:VirtualQuantity>
+        <vmw:CoresPerSocket ovf:required="false">1</vmw:CoresPerSocket>
+      </Item>
+      <Item>
+        <rasd:AllocationUnits>byte * 2^20</rasd:AllocationUnits>
+        <rasd:Description>Memory Size</rasd:Description>
+        <rasd:ElementName>2048MB of memory</rasd:ElementName>
+        <rasd:InstanceID>2</rasd:InstanceID>
+        <rasd:ResourceType>4</rasd:ResourceType>
+        <rasd:VirtualQuantity>2048</rasd:VirtualQuantity>
+      </Item>
+      <Item>
+        <rasd:Address>0</rasd:Address>
+        <rasd:Description>IDE Controller</rasd:Description>
+        <rasd:ElementName>IDE Controller 1</rasd:ElementName>
+        <rasd:InstanceID>3</rasd:InstanceID>
+        <rasd:ResourceType>5</rasd:ResourceType>
+      </Item>
+      <Item>
+        <rasd:AddressOnParent>0</rasd:AddressOnParent>
+        <rasd:ElementName>Hard Disk 1</rasd:ElementName>
+        <rasd:HostResource>ovf:/disk/vmdisk1</rasd:HostResource>
+        <rasd:InstanceID>4</rasd:InstanceID>
+        <rasd:Parent>3</rasd:Parent>
+        <rasd:ResourceType>17</rasd:ResourceType>
+      </Item>
+      <Item>
+        <rasd:AddressOnParent>1</rasd:AddressOnParent>
+        <rasd:AutomaticAllocation>false</rasd:AutomaticAllocation>
+        <rasd:ElementName>CD/DVD Drive 1</rasd:ElementName>
+        <rasd:InstanceID>5</rasd:InstanceID>
+        <rasd:Parent>3</rasd:Parent>
+        <rasd:ResourceSubType>vmware.cdrom.remoteatapi</rasd:ResourceSubType>
+        <rasd:ResourceType>15</rasd:ResourceType>
+      </Item>
+      <Item>
+        <rasd:AddressOnParent>0</rasd:AddressOnParent>
+        <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+        <rasd:Connection>vxw-dvs-26-virtualwire-11-sid-5000-PhotonOS</rasd:Connection>
+        <rasd:ElementName>Network adapter 1</rasd:ElementName>
+        <rasd:InstanceID>6</rasd:InstanceID>
+        <rasd:ResourceSubType>E1000</rasd:ResourceSubType>
+        <rasd:ResourceType>10</rasd:ResourceType>
+        <vmw:Config ovf:required="false" vmw:key="wakeOnLanEnabled" vmw:value="true"/>
+        <vmw:Config ovf:required="false" vmw:key="connectable.allowGuestControl" vmw:value="true"/>
+        <vmw:Config ovf:required="false" vmw:key="slotInfo.pciSlotNumber" vmw:value="32"/>
+      </Item>
+      <Item>
+        <rasd:AutomaticAllocation>false</rasd:AutomaticAllocation>
+        <rasd:ElementName>Serial port 1</rasd:ElementName>
+        <rasd:InstanceID>7</rasd:InstanceID>
+        <rasd:ResourceType>21</rasd:ResourceType>
+        <vmw:Config ovf:required="false" vmw:key="yieldOnPoll" vmw:value="true"/>
+      </Item>
+      <Item ovf:required="false">
+        <rasd:ElementName>Video card</rasd:ElementName>
+        <rasd:InstanceID>8</rasd:InstanceID>
+        <rasd:ResourceType>24</rasd:ResourceType>
+        <vmw:Config ovf:required="false" vmw:key="graphicsMemorySizeInKB" vmw:value="262144"/>
+        <vmw:Config ovf:required="false" vmw:key="useAutoDetect" vmw:value="false"/>
+        <vmw:Config ovf:required="false" vmw:key="videoRamSizeInKB" vmw:value="4096"/>
+        <vmw:Config ovf:required="false" vmw:key="enable3DSupport" vmw:value="false"/>
+        <vmw:Config ovf:required="false" vmw:key="use3dRenderer" vmw:value="automatic"/>
+        <vmw:Config ovf:required="false" vmw:key="numDisplays" vmw:value="1"/>
+      </Item>
+      <vmw:Config ovf:required="false" vmw:key="flags.vbsEnabled" vmw:value="false"/>
+      <vmw:Config ovf:required="false" vmw:key="cpuHotAddEnabled" vmw:value="false"/>
+      <vmw:Config ovf:required="false" vmw:key="nestedHVEnabled" vmw:value="false"/>
+      <vmw:Config ovf:required="false" vmw:key="virtualSMCPresent" vmw:value="false"/>
+      <vmw:Config ovf:required="false" vmw:key="flags.vvtdEnabled" vmw:value="false"/>
+      <vmw:Config ovf:required="false" vmw:key="cpuHotRemoveEnabled" vmw:value="false"/>
+      <vmw:Config ovf:required="false" vmw:key="memoryHotAddEnabled" vmw:value="false"/>
+      <vmw:Config ovf:required="false" vmw:key="bootOptions.efiSecureBootEnabled" vmw:value="false"/>
+      <vmw:Config ovf:required="false" vmw:key="firmware" vmw:value="bios"/>
+      <vmw:Config ovf:required="false" vmw:key="virtualICH7MPresent" vmw:value="false"/>
+      <vmw:ExtraConfig ovf:required="false" vmw:key="nvram" vmw:value="ovf:/file/file2"/>
+    </VirtualHardwareSection>
+  </VirtualSystem>
+</Envelope>
