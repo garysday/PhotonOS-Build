@@ -1,5 +1,8 @@
 # PhotonOS-Build
 
+BROKEN -- accidentally deleted sudo package -- reinstall with tdnf install sudo
+BROKEN -- already fixed will upload 21-09-2018, check build date to get fixed version
+
 PhotonOS Build: 20-09-2018
 
 Includes a number of stress and networking utils and Openstack client Tools
