@@ -1,6 +1,7 @@
 PhotonOS Build: 03-10-2018
 
 **Fixes Sudo issue**
+
 ++Adds Cloud-init
 
 Includes a number of stress and networking utils and Openstack client Tools
