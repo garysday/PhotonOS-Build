@@ -10,10 +10,14 @@
   </DiskSection>
   <NetworkSection>
     <Info>The list of logical networks</Info>
-    <Network ovf:name="vxw-dvs-26-virtualwire-11-sid-5000-PhotonOS">
-      <Description>The vxw-dvs-26-virtualwire-11-sid-5000-PhotonOS network</Description>
+    <Network ovf:name="Home10Net">
+      <Description>The Home10Net network</Description>
     </Network>
   </NetworkSection>
+  <vmw:StorageGroupSection ovf:required="false" vmw:id="group1" vmw:name="vSAN Default Storage Policy">
+    <Info>Storage policy for group of disks</Info>
+    <vmw:Description>The vSAN Default Storage Policy storage policy group</vmw:Description>
+  </vmw:StorageGroupSection>
   <VirtualSystem ovf:id="PhotonOS Master">
     <Info>A Virtual system</Info>
     <Name>PhotonOS Master</Name>
@@ -88,13 +92,13 @@ package:17.0.2</Annotation>
       <Item>
         <rasd:AddressOnParent>0</rasd:AddressOnParent>
         <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
-        <rasd:Connection>vxw-dvs-26-virtualwire-11-sid-5000-PhotonOS</rasd:Connection>
+        <rasd:Connection>Home10Net</rasd:Connection>
         <rasd:ElementName>Network adapter 1</rasd:ElementName>
         <rasd:InstanceID>6</rasd:InstanceID>
         <rasd:ResourceSubType>E1000</rasd:ResourceSubType>
         <rasd:ResourceType>10</rasd:ResourceType>
-        <vmw:Config ovf:required="false" vmw:key="wakeOnLanEnabled" vmw:value="true"/>
         <vmw:Config ovf:required="false" vmw:key="connectable.allowGuestControl" vmw:value="true"/>
+        <vmw:Config ovf:required="false" vmw:key="wakeOnLanEnabled" vmw:value="true"/>
         <vmw:Config ovf:required="false" vmw:key="slotInfo.pciSlotNumber" vmw:value="32"/>
       </Item>
       <Item>
@@ -108,11 +112,11 @@ package:17.0.2</Annotation>
         <rasd:ElementName>Video card</rasd:ElementName>
         <rasd:InstanceID>8</rasd:InstanceID>
         <rasd:ResourceType>24</rasd:ResourceType>
-        <vmw:Config ovf:required="false" vmw:key="graphicsMemorySizeInKB" vmw:value="262144"/>
-        <vmw:Config ovf:required="false" vmw:key="useAutoDetect" vmw:value="false"/>
-        <vmw:Config ovf:required="false" vmw:key="videoRamSizeInKB" vmw:value="4096"/>
         <vmw:Config ovf:required="false" vmw:key="enable3DSupport" vmw:value="false"/>
+        <vmw:Config ovf:required="false" vmw:key="useAutoDetect" vmw:value="false"/>
         <vmw:Config ovf:required="false" vmw:key="use3dRenderer" vmw:value="automatic"/>
+        <vmw:Config ovf:required="false" vmw:key="graphicsMemorySizeInKB" vmw:value="262144"/>
+        <vmw:Config ovf:required="false" vmw:key="videoRamSizeInKB" vmw:value="4096"/>
         <vmw:Config ovf:required="false" vmw:key="numDisplays" vmw:value="1"/>
       </Item>
       <vmw:Config ovf:required="false" vmw:key="flags.vbsEnabled" vmw:value="false"/>
@@ -127,5 +131,11 @@ package:17.0.2</Annotation>
       <vmw:Config ovf:required="false" vmw:key="virtualICH7MPresent" vmw:value="false"/>
       <vmw:ExtraConfig ovf:required="false" vmw:key="nvram" vmw:value="ovf:/file/file2"/>
     </VirtualHardwareSection>
+    <vmw:StorageSection ovf:required="false" vmw:group="group1">
+      <Info>Storage policy group reference</Info>
+    </vmw:StorageSection>
+    <ProductSection>
+      <Info>Information about the installed software</Info>
+    </ProductSection>
   </VirtualSystem>
 </Envelope>
