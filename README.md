@@ -1,10 +1,7 @@
-# PhotonOS-Build
+PhotonOS Build: 03-10-2018
 
-BROKEN -- accidentally deleted sudo package -- reinstall with tdnf install sudo
-
-BROKEN -- already fixed will upload 21-09-2018, check build date to get fixed version
-
-PhotonOS Build: 20-09-2018
+**Fixes Sudo issue**
+++Adds Cloud-init
 
 Includes a number of stress and networking utils and Openstack client Tools
 (machine-id emptied so upon deploy / boot it can properly receive a DHCP address)
