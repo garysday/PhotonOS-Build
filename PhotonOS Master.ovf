@@ -113,11 +113,11 @@ package:17.0.2</Annotation>
         <rasd:InstanceID>8</rasd:InstanceID>
         <rasd:ResourceType>24</rasd:ResourceType>
         <vmw:Config ovf:required="false" vmw:key="enable3DSupport" vmw:value="false"/>
+        <vmw:Config ovf:required="false" vmw:key="videoRamSizeInKB" vmw:value="4096"/>
+        <vmw:Config ovf:required="false" vmw:key="graphicsMemorySizeInKB" vmw:value="262144"/>
+        <vmw:Config ovf:required="false" vmw:key="numDisplays" vmw:value="1"/>
         <vmw:Config ovf:required="false" vmw:key="useAutoDetect" vmw:value="false"/>
         <vmw:Config ovf:required="false" vmw:key="use3dRenderer" vmw:value="automatic"/>
-        <vmw:Config ovf:required="false" vmw:key="graphicsMemorySizeInKB" vmw:value="262144"/>
-        <vmw:Config ovf:required="false" vmw:key="videoRamSizeInKB" vmw:value="4096"/>
-        <vmw:Config ovf:required="false" vmw:key="numDisplays" vmw:value="1"/>
       </Item>
       <vmw:Config ovf:required="false" vmw:key="flags.vbsEnabled" vmw:value="false"/>
       <vmw:Config ovf:required="false" vmw:key="cpuHotAddEnabled" vmw:value="false"/>
